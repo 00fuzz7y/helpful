@@ -1,0 +1,338 @@
+:start vim
+$vim [filename](...s) #open [filename](s) in vim
+$gvim [filename](...s) #open [filename](s) in new window
+
+:next next file
+:wnext save then next
+:Next|:previous previous file
+:wNext|:wprevious write, then previous
+:set autowrite to save when switchings	
+:args show working files
+:rewind|(first?) first file in group
+:last last file in group
+CTRL-^ alternate file
+
+:split
+CTRL-W[w|Ctrl-W] cursor to top window, then between top and bottom
+Ctrl-W change windows
+Ctrl-Wk up a window
+Ctrl-W+ increase window size
+Ctrl-W- decrease window size
+Ctrl-W= windows approx same size
+Ctrl-W_ makes windows [c|max] height
+:q|zz|Ctrl-Wc close window
+:split [file] opens up [file] in second window, editing
+:split +/initialCommand [file]
+:[#ofWindows]split opens that many windows
+:sview allows viewing a separate file without editing
+
+:new splits display with a new file
+
+:buffers show all buffers
+:hide 
+:buffer [c]
+:[c]bnext
+:[c]sbnext split bnext
+:[c]bprevious|bNext
+:[c]sbprevious
+:blast last buffer
+:brewind first buffer
+:bmodified [c] go to the [c]th buffer
+:hide|:set hidden
+
+:vi/:write(!) [file] open[file]
+:view open in read-only
+[command]<ESC> abort[command]
+<F1> help
+:help [topic|index=see(all)|v_isualModeCommand|i_nsertModeCommand|
+	:command|c_exModeCommand|-commandLineTag|'options']
+	<ctrl>+] jump to tag
+	<ctrl>+t stack.tag.pop()
+
+:digraphs shows digraph table
+.*[]%/\?~$ these need a \
+
+(m) abbr. movement
+hjkl <v^> m
+() backward and forward a sentence
+
+{} backward and forward a paragraph
+:set paragraphs="macromacromacro"
+:set paragraphs=IPLPPPQPP Llpplpipbp
+
+[([|]) move section backwards
+]([|]) move section forwards
+<ctrl>L pagebreak character
+:set section =SHNHH HUnhsh
+
+x delete
+p put
+y yank(copy)
+Y/yy yank line
+~ change case
+d[m] deleteto[m]
+dd delete current line
+c[m] change[m]
+cc|C|c$ changeline
+![m] command filters selected text though an external command
+!! runs current line through filter
+j thisLine+' '+next[count]Line(s)
+gj join lines with no space between
+. repeatLast(d|c)
+<ctrl>V don't mess with next char
+<ctrl>P autocomplete looking back
+<ctrl>N autocomplete looking forward
+
+
+u undo
+U undo(line)
+<CTRL>+r redr
+q[a-z][keystrokes]q records keystrokes as @[a-z]
+zz exit&save
+:q! exit!!NOSAVE
+
+Ctrl-\Ctrl-N|<esc> back to normal mode
+
+i insert v_cursor_ 
+I insert @beginningOfLine
+a append _cursor_v
+A insert @endOfLine
+[c]r[x] replace highlighted [c] times with[x]
+R enter replace mode 
+o open on newline below
+O open on newline above
+
+[count|1]w forward [count|1]word(s)
+
+^ first nonBlank char
+[0|<(k)Home>] first.char
+[count|1]$,<(k)End> endOf[count]Line
+
+/[string] forward search for [string]
+?[string] backward search for [string]
+	/<enter> findnext
+n findnext
+N repeat search in opposite direction
+/ ^|v move through search buffer
+:searchoptions
+:set	hlsearch incsearch 
+
+:regex
+^ beginning of line
+$ end of line
+. any single char
+ 
+[n]fchar forwardSearchFor([n]th) char
+[n]Fchar backwardSearchFor([n]th) char
+[n]tchar forwardJustbefore([n]th) char
+[n]Tchar backwardSearchFor([n]th) char
+
+:set ignorecase when searching for words
+:set infercase from what is typed, not matched
+:set complete=k,k,...,k
+. currentfile
+b files in loaded buffers
+d def in currentfile and #includes
+i def in #includes
+k 'dictionary' file
+kfile 
+t|] tags file
+u unloaded buffers
+w files in other windows
+'path'
+
+<ctrl>x refine search submode
+<ctrl>d macro definitions
+<ctrl>f filenames
+<ctrl>k dictionary
+<ctrl>i current and #include
+<ctrl>l whole lines
+<ctrl>] tags
+<ctrl>p previous
+<ctrl>n next
+
+:set dictionary=file,file,...
+or use k/path/to/file,k/over/and/over
+gg go to top
+[line#]G goto[line#|endOfFile]
+<CTRL>+G show(location)
+
+m[a-z] mark[a-z]
+`[a-z] to mark[a-z]
+:marks view marks|(mark)
+
+<CTRL>+u scrollUp
+<CTRL>+d scrollDown
+
+v visualMode(char)
+V visualMode(line)
+Ctrl-V visualMode(column) or switch modes
+
+:cmdlinemode
+:[rangeOfLines]print
+$ last line in program
+% entirefile
+. currentline
+/pattern/
+
+:range substitute /from/to/flags
+g do all occurences
+p print out all line changes
+c asks for confirmation before changes
+y make this replacement
+n skip this replacement
+a replace the rest without confirmation
+q quit with no more changes
+<ctrl>e scrollup one line
+<ctrl>y scrolldown one line
+
+gqgq gqq format a line
+select+gq forma
+gq} to end of paragraph
+gqip formats current paragraph
+
+:range center|right width
+:range left margin
+
+:justify
+:source $VIMRUNTIME/macros/justify.vim
+_j _JUSTIFY_MACRO
+
+:set nojoinspaces
+
+:set formatoptions=characters
+t wrap text
+c wrap comments with autoinsert leaders
+r comment leader on newline
+o comment leader on o or O insert
+q gq formats comments
+2 format based on second line, not first
+v wrap on blanks
+b wrap on blanks before textwidth
+l do not break on insert. only gq
+
+:set formatprg=fmt
+:!(formatting program)
+
+:set fileformat?
+:set fileformat=unix|msdos
+
+:set (no)endofline
+
+To set something to be continually on put in vimrc:
+    :filetype on
+    :autocmd Filetype comma,separated,list :set settings
+:syntax on highlighting
+:set background=(light/dark)
+
+:set filetype=(programming language)
+:help new-filetype
+
+:set shiftwidth=[n]
+:set autoindent
+    :set cindent
+    :set smartindent
+<ctrl>-D } back one shiftwidth
+= smartindent
+
+([/])<ctrl>-I search for word in currentfile and #include
+g(d/D) search for variable definition(local/global)
+([/])<ctrl>-D search for macro definition(first/next)
+([/])(d/D) display macro definitions(first/next)
+
+% finds matching brace #this can be used with commands to alter blocks
+i{ alters all inside the brace
+[c]K goes to [c]th page of hl'd word's man page
+
+:function someFunction()
+:$read !date
+:
+:endfunction
+
+:call someFunction()
+
+fxDefinitions
+    ctags *.c
+    :tag function
+    :tags shows jumps
+        <ctrl>T
+    :stag tag
+    :[c]<ctrl>W] splits and jumps to [c] tall top window
+    :tag /regex
+    :tselect {name}
+    :tjump
+    :[c]t(next|previous|rewind|last)
+
+g?(g|?) 1encrypt2decrypt line
+
+:r(ead) reads and inserts file at the current line
+
+:w(rite) write to a file
+
+:shell takes you to a shell
+
+Makefiles
+    :set list
+    :sort list
+        ma          #mark a
+        [to bottom] #navigate to bottom of list
+        !'a sort    #run ext cmd sort from here to mark a
+
+MakingIt
+    :make arguments
+    :c(r|p|n|l) go to () error
+    :cc display current error
+    :clist(!) show (all) error messages
+    :cfile errorfile sets errorfile as...errorfile
+    :cquit leaves with an errormesage(for IDE integration)
+    :cnfile first error in next file
+
+:grep -w(full words only) variable_name files_to_search
+
+:autocommand allows you to configure certain types of files.
+:autocmd group events file_pattern nested command
+:augroup groupname
+:	autocmd wutevr
+:augroup END
+
+:doautocmd group event file_name
+events:
+BufNewFile when editing a file that does not exist
+BufReadPre BufReadPost before/after reading a buffer
+BufRead(post)
+BufFile(pre|post) before|after using :file command
+FileRead(pre|post) before|after using :read command '['] beginning&end mark
+FilterRead(pre|post) before|after using filter
+FileType when filetype option is set
+Syntax when syntax option is set
+StdinRead(pre|post) before|after reading from stdin 
+BufWrite(pre|post) before|after writing buffer to file
+:abbreviate sh shortened
+:abbreviate lists current abbreviations
+
+:map <key>(set_of_commands)
+:map lists maps
+
+:fixbackspace swaps <bksp> and <del>
+:set backspace=indent,col,start #autoindens,lines,insert start point
+
+:mkvimrc file savesettings *as* $HOME/(.vimrc|_vimrc|.exrc|_exrc)
+:source file
+:version lists the current verison
+
+ex.vimrc{
+:syntax on #coloring
+:autocmd FileType* set formatoptions=tcql
+	\noindent comments&
+:autocmd FileType c,cpp set formatoptions=croql
+	\cindent comments=sr:/*,mb:*,ex:*/,://
+:set autoindent
+:set autowrite
+:ab #d #define
+:ab #i #include
+:set shiftwidth=4
+:set hlsearch
+:set incsearch
+:set textwidth=70
+:set wrapmargin=margin|#
+}
