@@ -56,4 +56,45 @@ for x in range(20, 22000,x):
 #since we used x it changed
 print(x)
 
+#saveFile
+file_to_be_saved_to = "saveFile.txt"
+#write to file
+content = "what to overwrite file with"
+saveFile = open(file_to_be_saved_to, 'w')
+saveFile.write(content)
+saveFile.close()    #close resources
 
+#append to file
+content = "what to append to file"
+saveFile = open(file_to_be_saved_to, 'a')
+saveFile.write('/n')
+saveFile.write(content)
+saveFile.close()
+
+#read from file
+toRead = open(file_to_be_saved_to, 'r').read()
+splitUp = toRead.split('\n')
+print(splitUp[2])
+
+toRead2 = open(file_to_be_saved_to, 'r').readlines()
+print(toRead2)
+
+#classes 
+class calc:
+    def add(x,y) :
+        answer = x + y
+        print(answer)
+    
+    def sub(x,y) :
+        answer = x - y
+        print(answer)
+    
+    def mult(x,y) : 
+        answer = x*y 
+        print(answer)
+        
+    def div(x,y) :
+        answer = x/y
+        print(answer)
+        
+        
