@@ -4,19 +4,30 @@ review
 python-interpreted language
 high-level
 """
-some_limit = 5
+
+#print the current date
+import time
+import datetime
+
+print ("Time(s) since epoch: %s" %time.time())
+print ("Current datetime: " , datetime.datetime.now())
+print ("#day of Month year week#(day)# dayOfWeek: ")
+print(datetime.date.today().strftime("%j %d %B %Y %W %w %A"))
+print (time.strftime("%m|%d~{%H:%M}"))
+
+some_limit = 3
 condition = True #1
 #condition for
 #while loop
 while(condition<some_limit):
-    print("do something repetetive")
+    print("do something repetetive a couple times")
     condition+=1
 #for iterating though lists
 example_list = ["collection", "of", 'things'] #group of objects
 #we can use a for-loop to iterate through items
 for thing in example_list:
     print("{} {}".format(thing,example_list.index(thing)))
-    #prints thing and it's position in the list
+    #prints thing and it's position in the listth
 #or a range of numbers (from, to, by)
 for x in range (4,47,3):
     print(x, end=' ')
@@ -28,7 +39,7 @@ for x in range (4,47,3):
     #takes the square
     power = x**2
     arbitrary_limit = 1437
-    #less than arbistrary limit
+    #less than arbitrary limit
     if(power<arbitrary_limit):
         continue
     #greater than or equal to number
@@ -44,57 +55,63 @@ def printList(some_list) :
         print(some_list.index(entry), entry)
         
 list_of_parameters = ["example", "parameters"]  
+#perhaps list primes? 
 printList(list_of_parameters)
 
-x = 4273 #grand scope
+x = 427300000 #grand scope
 #global?
 print(x)
 #this x is just a placeholder and the 
-for x in range(20, 22000,x):
+for x in range(20, 2200000000,x):
     print(x, end = ' ')
     print("local scope")
 #since we used x it changed
 print(x)
 
-#saveFile
-file_to_be_saved_to = "saveFile.txt"
-#write to file
-content = "what to overwrite file with"
-saveFile = open(file_to_be_saved_to, 'w')
-saveFile.write(content)
-saveFile.close()    #close resources
+def speakOnErrors():
+    print("some common errors:")
+    print("variableName != variableName")
+    print("    don't forget your indentation")
+    print("close your opening statements")
+speakOnErrors()
 
-#append to file
-content = "what to append to file"
-saveFile = open(file_to_be_saved_to, 'a')
-saveFile.write('/n')
-saveFile.write(content)
+#check when last opened
+saveFile = open('somefile.txt','r').readlines()
+print(saveFile)
+
+#writing to a file
+writeThis = "to a file"
+#(over)write file
+saveFile = open("somefile.txt", 'w')
+#write to file(
+saveFile.write(writeThis)
+#close open resource
 saveFile.close()
 
-#read from file
-toRead = open(file_to_be_saved_to, 'r').read()
-splitUp = toRead.split('\n')
-print(splitUp[2])
+#appending to a file
+appendThis = 'to some file'
+saveFile = open("somefile.txt",'a')
+#append to somefile.txt
+saveFile.write(appendThis)
+#CLOSE RESOURCE
+saveFile.close()
 
-toRead2 = open(file_to_be_saved_to, 'r').readlines()
-print(toRead2)
+#reading from a file
+readThis = open('somefile.txt', 'r').read()
+print(readThis)
 
-#classes 
-class calc:
-    def add(x,y) :
-        answer = x + y
-        print(answer)
-    
-    def sub(x,y) :
-        answer = x - y
-        print(answer)
-    
-    def mult(x,y) : 
-        answer = x*y 
-        print(answer)
-        
-    def div(x,y) :
-        answer = x/y
-        print(answer)
-        
-        
+#splitlines
+splitThis = readThis.split('\n')
+print(splitThis)
+
+#easier split
+readThis2 = open('somefile.txt', 'r').readlines()
+print(readThis2)
+
+#write the date/time to the file
+appendThis = time.strftime("%m|%d~{%H:%M}")
+saveFile = open("somefile.txt",'a')
+saveFile.write(appendThis)
+saveFile.close()
+
+#CLASSES!
