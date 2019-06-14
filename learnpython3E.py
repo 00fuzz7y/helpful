@@ -136,15 +136,16 @@ f"She said her name is {name}." # => "She said her name is Reiko"
 # You can basically put any Python statement inside the braces and it will be output in the string.
 f"{name} is {len(name)} characters long."
 
-s.startswith()
-.endswith()
-.isalpha()	#etc
-.capitalize()
-.lower()
-.upper()
-.title()
-.swapcase()
-.replace('the old strong','with a new one')
+s = "some arbitrary string"
+print(s.startswith())
+print(s.endswith())
+print(s.isalpha())	#etc
+print(s.capitalize())
+print(s.lower())
+print(s.upper())
+print(s.title())
+print(s.swapcase())
+print(s.replace('the old strong','with a new one'))
 
 # None is an object
 None  # => None
@@ -1015,7 +1016,7 @@ os.close(dir_fd) #don't leak resources
 	"""
 import io
 #check the docs for more thorough
-https://docs.python.org/3.7/library/io.html#module-io
+# https://docs.python.org/3.7/library/io.html#module-io
 
 #input/output streams
 
