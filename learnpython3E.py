@@ -610,7 +610,7 @@ list(map(max, [1, 2, 3], [4, 2, 1]))  # => [4, 2, 3]
 list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
 
 # We can use list comprehensions for nice maps and filters
-# List comprehension stores the output as a list which can itself be a nested list
+# List comprehension stores the output as a list which can itself be nested
 [add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
 [x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
 
