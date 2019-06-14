@@ -141,8 +141,12 @@ calc.add(2,2)
     
 #finally, input
 feeling = input('how are you?')
+<<<<<<< HEAD
 print("this one doesn't understand what "+feeling+
 " means, but hopes you make the most of your day, anyway.") 
+=======
+print("this one doesn't understand what "+feeling+" means, but i hope you make the most of your day, anyway.") 
+>>>>>>> af78f722976d2a9ab26e42b09af763e147e94a6e
         
 #it is trivial to do statistics in python on someList
 someList = [1, 2, 3, 4, 7, 5, 6, 9, 47, 47]

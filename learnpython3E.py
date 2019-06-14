@@ -136,6 +136,7 @@ f"She said her name is {name}." # => "She said her name is Reiko"
 # You can basically put any Python statement inside the braces and it will be output in the string.
 f"{name} is {len(name)} characters long."
 
+<<<<<<< HEAD
 s.startswith()
 .endswith()
 .isalpha()	#etc
@@ -145,6 +146,18 @@ s.startswith()
 .title()
 .swapcase()
 .replace('the old strong','with a new one')
+=======
+s = "some arbitrary string"
+print(s.startswith())
+print(s.endswith())
+print(s.isalpha())	#etc
+print(s.capitalize())
+print(s.lower())
+print(s.upper())
+print(s.title())
+print(s.swapcase())
+print(s.replace('the old strong','with a new one'))
+>>>>>>> af78f722976d2a9ab26e42b09af763e147e94a6e
 
 # None is an object
 None  # => None
@@ -609,7 +622,11 @@ list(map(max, [1, 2, 3], [4, 2, 1]))  # => [4, 2, 3]
 list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
 
 # We can use list comprehensions for nice maps and filters
+<<<<<<< HEAD
 # List comprehension stores the output as a list which can itself be a nested list
+=======
+# List comprehension stores the output as a list which can itself be nested
+>>>>>>> af78f722976d2a9ab26e42b09af763e147e94a6e
 [add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
 [x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
 
@@ -1015,7 +1032,11 @@ os.close(dir_fd) #don't leak resources
 	"""
 import io
 #check the docs for more thorough
+<<<<<<< HEAD
 https://docs.python.org/3.7/library/io.html#module-io
+=======
+# https://docs.python.org/3.7/library/io.html#module-io
+>>>>>>> af78f722976d2a9ab26e42b09af763e147e94a6e
 
 #input/output streams
 
