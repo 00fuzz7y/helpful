@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-to a fileto some file06|12~{07:30}
-=======
-to a fileto some file04|11~{19:34}
->>>>>>> af78f722976d2a9ab26e42b09af763e147e94a6e
