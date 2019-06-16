@@ -70,7 +70,7 @@ print(x)
 
 def speakOnErrors():
     print("some common errors:")
-    print("variableName != variableName")
+    print("variableName != variablename")
     print("    don't forget your indentation")
     print("close your opening statements")
 speakOnErrors()
